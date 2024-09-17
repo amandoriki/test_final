@@ -1,4 +1,4 @@
-name: Workflow101
+name: Workflow-Final
 'on':
   push:
     branches:
@@ -8,8 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Set up Python 3.6
-        uses: actions/setup-python@v1
+      - name: Set up Python 3.10.14
+        uses: actions/setup-python@v2
         with:
           python-version: 3.6
       - name: Install dependencies
@@ -26,5 +26,5 @@ jobs:
           dest_branch: Branch-dest
           source_branch: Branch101
           commit_message: Release production version
-          env: null
+        env: 
           GITHUB_TOKEN: '${ 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 }'
