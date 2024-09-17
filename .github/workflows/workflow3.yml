@@ -15,7 +15,7 @@ jobs:
 #      - name: Run tests
 #        run: python manage.py test
       - name: Push main branch into production
-        uses: action.yml@main
+        uses: amandoriki/action-branch-to-branch@main
         with:
           dest_branch: Branch-dest
           source_branch: Branch101
