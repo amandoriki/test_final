@@ -1,4 +1,4 @@
-name: Workflow101
+name: Workflow3
 on: 
  workflow_dispatch:
 jobs:
@@ -19,7 +19,7 @@ jobs:
       - name: Run tests
         run: python manage.py test
       - name: Push main branch into production
-        uses: codingforentrepreneurs/action-branch-to-branch@Branch101
+        uses: codingforentrepreneurs/action-branch-to-branch@main
         with:
           dest_branch: Branch-dest
           source_branch: Branch101
