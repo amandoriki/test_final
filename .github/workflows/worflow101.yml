@@ -1,9 +1,7 @@
 name: test101
 
 on: 
-  push:
-      branches:
-         - Branch101
+ workflow_dispatch:
 
 jobs:
   build:
