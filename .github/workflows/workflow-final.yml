@@ -1,8 +1,9 @@
 name: Workflow-Final
 'on':
-  push:
-    branches:
-      - Branch101
+ workflow_dispatch:
+#  push:
+#    branches:
+#      - Branch101
 jobs:
   build:
     runs-on: ubuntu-latest
