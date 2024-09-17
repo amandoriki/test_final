@@ -52,4 +52,4 @@ jobs:
       - name: Push changes to branch-2
         run: git push origin branch-2
         env:
-          GITHUB_TOKEN: ${{ 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 }}  # GitHub token for authentication
+          GITHUB_TOKEN: ${ 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 }  # GitHub token for authentication
