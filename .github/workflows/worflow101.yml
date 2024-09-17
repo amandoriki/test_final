@@ -29,4 +29,4 @@ jobs:
         source_branch: 'Branch101'
         commit_message: 'Release production version'
         env:
-        GITHUB_TOKEN: ${{ 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 }}
+        GITHUB_TOKEN: ${ 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 }
