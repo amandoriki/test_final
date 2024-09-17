@@ -27,5 +27,5 @@ jobs:
           dest_branch: Branch-dest
           source_branch: main
           commit_message: Release production version
-        env: 
-          GITHUB_TOKEN: '${ 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 }'
+#        env: 
+#          GITHUB_TOKEN: '${ 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 }'
