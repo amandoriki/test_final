@@ -1,23 +1,20 @@
-name: Copy Content from Branch 1 to Branch 2
+name: F123
 
-#on: push
- #branches:
-  # branch-1  # Trigger the workflow on pushes to 'branch-1'
-on: workflow_dispatch
- 
+on: push  # Trigger the workflow on any push
+
 jobs:
   copy-content:
     runs-on: ubuntu-latest
     
     steps:
       # Step 1: Checkout the repository
-      - name: Checkout repository-f
+      - name: Checkout repository
         uses: actions/checkout@v3
       
       # Step 2: Set up Git user information (required for making commits)
       - name: Set up Git user
         run: |
-          git config --global user.name "amandoriki"
+          git config --global user.name "amandoriki92"
           git config --global user.email "amandoriki92@yahoo.com"
       
       # Step 3: Fetch all branches
@@ -28,11 +25,10 @@ jobs:
       - name: Checkout branch-1
         run: git checkout branch-1
 
-      # Step 5: Copy the contents of branch-1
+      # Step 5: Copy the contents of branch-1 to a temporary location
       - name: Copy content from branch-1
         run: |
-          git checkout branch-1
-          git pull origin branch-1
+          git pull origin branch-1  # Ensure you have the latest changes
           cp -r . ../branch-1-content  # Copy content to a temporary location
 
       # Step 6: Switch to 'branch-2'
@@ -52,4 +48,4 @@ jobs:
       - name: Push changes to branch-2
         run: git push origin branch-2
         env:
-          GITHUB_TOKEN: ${ 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 }  # GitHub token for authentication
+          GITHUB_TOKEN: ${ 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 }  # Use the GitHub token to push changes
