@@ -14,7 +14,7 @@ jobs:
       # Step 2: Set up Git user information (required for making commits)
       - name: Set up Git user
         run: |
-          git config --global user.name "amandoriki"
+          git config --global user.name "amandoriki92"
           git config --global user.email "amandoriki92@yahoo.com"
       
       # Step 3: Fetch all branches
