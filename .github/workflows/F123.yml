@@ -1,0 +1,51 @@
+name: F123
+
+on: push  # Trigger the workflow on any push
+
+jobs:
+  copy-content:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      # Step 2: Set up Git user information (required for making commits)
+      - name: Set up Git user
+        run: |
+          git config --global user.name "amandoriki"
+          git config --global user.email "amandoriki92@yahoo.com"
+      
+      # Step 3: Fetch all branches
+      - name: Fetch all branches
+        run: git fetch --all
+      
+      # Step 4: Checkout 'branch-1' to get its contents
+      - name: Checkout branch-1
+        run: git checkout branch-1
+
+      # Step 5: Copy the contents of branch-1 to a temporary location
+      - name: Copy content from branch-1
+        run: |
+          git pull origin branch-1  # Ensure you have the latest changes
+          cp -r . ../branch-1-content  # Copy content to a temporary location
+
+      # Step 6: Switch to 'branch-2'
+      - name: Checkout branch-2
+        run: |
+          git checkout branch-2
+          git pull origin branch-2
+
+      # Step 7: Copy the content from branch-1 to branch-2
+      - name: Copy content to branch-2
+        run: |
+          cp -r ../branch-1-content/* .  # Copy content from the temporary location to branch-2
+          git add .
+          git commit -m "Sync content from branch-1 to branch-2"
+
+      # Step 8: Push changes to 'branch-2'
+      - name: Push changes to branch-2
+        run: git push origin branch-2
+        env:
+          GITHUB_TOKEN: ${ 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 }  # Use the GitHub token to push changes
