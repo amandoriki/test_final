@@ -1,9 +1,11 @@
 name: Copy Content from Branch 1 to Branch 2
 
-on:
-  push:
-    branches:
-      - branch-1  # Trigger the workflow on pushes to 'branch-1'
+on: 
+ workflow_dispatch
+ 
+#  push:
+#    branches:
+#      - branch-1  # Trigger the workflow on pushes to 'branch-1'
 
 jobs:
   copy-content:
@@ -17,7 +19,7 @@ jobs:
       # Step 2: Set up Git user information (required for making commits)
       - name: Set up Git user
         run: |
-          git config --global user.name "amandoriki92"
+          git config --global user.name "amandoriki"
           git config --global user.email "amandoriki92@yahoo.com"
       
       # Step 3: Fetch all branches
